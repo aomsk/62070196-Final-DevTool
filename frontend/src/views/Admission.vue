@@ -61,14 +61,11 @@
                             aria-expanded="false"
                         >ค้นหา 'รอบรับสมัคร'</button>
                         <ul class="dropdown-menu col-12" aria-labelledby="dropdownMenuButton1">
-                            <li>
-                                <a class="dropdown-item" href="#">Action</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Another action</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                            <li v-for="(item, index) in rounds" :key="index">
+                                <a
+                                    class="dropdown-item"
+                                    @click="searchByRound(item.roundName)"
+                                >{{ item.roundName }}</a>
                             </li>
                         </ul>
                     </div>
@@ -102,13 +99,21 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            courses: ""
+            courses: "",
+            rounds: ""
         }
     },
     created() {
         axios.get('http://localhost:3000/course').then(response => {
-            console.log(response.data.course);
+            console.log(response.data.courses);
             this.courses = response.data.course
+        }).catch(error => {
+            console.log(error);
+        })
+
+        axios.get('http://localhost:3000/round').then(response => {
+            console.log(response.data.rounds);
+            this.rounds = response.data.rounds
         }).catch(error => {
             console.log(error);
         })
