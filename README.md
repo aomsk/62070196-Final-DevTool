@@ -1,6 +1,7 @@
 # 62070196-Final-DevTool
 
 ## รูปแบบของ commit message
+ตัวอย่างการใช้งาน ```commit message: คำอธิบาย```
 |commit message|ความหมาย|
 |:------------:|--------|
 |``build``     |การเปลี่ยนแปลงที่ส่งผลต่อระบบ build (ตัวอย่างเช่น gulp, broccoli, npm)|
