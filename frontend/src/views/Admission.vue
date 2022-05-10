@@ -106,7 +106,7 @@ export default {
     created() {
         axios.get('http://localhost:3000/course').then(response => {
             console.log(response.data.courses);
-            this.courses = response.data.course
+            this.courses = response.data.courses
         }).catch(error => {
             console.log(error);
         })
