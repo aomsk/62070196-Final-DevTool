@@ -3,22 +3,24 @@ const cors = require('cors');
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 global.course = require('./api/models/courseModel')
-const routes = require('./api/routes/courseRoutes')
+global.round = require('./api/models/roundModel')
+const routes = require('./api/routes/allRoutes')
 
-mongoose.connect(
-    'mongodb://localhost:27017/course_kmitl',
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
-);
+// mongoose.connect(
+//     'mongodb://localhost:27017/course_kmitl',
+//     {
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true
+//     }
 
-// const options = {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-// }
+// );
 
-// mongoose.connect('mongodb+srv://root:12345@cluster0.n01um.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', options);
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}
+
+mongoose.connect('mongodb+srv://root:12345@cluster0.n01um.mongodb.net/course_kmitl?retryWrites=true&w=majority', options);
 
 const port = process.env.PORT || 3000;
 if (port == null || port == "") {

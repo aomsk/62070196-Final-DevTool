@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const course = mongoose.model('course');
+const round = mongoose.model('round');
 
-exports.list_all_course = (req, res) => {
+exports.list_all_round = (req, res) => {
 
-    course.find({}).then((course) => res.json({courses: course}))
+    round.find({}).then((round) => res.json({rounds: round}))
     .catch((error) => {
         res.status(400).json({ message: 'something wrong!!' })
         console.log(error);
