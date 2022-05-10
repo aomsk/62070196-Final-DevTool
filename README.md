@@ -29,5 +29,5 @@
 ```
 1. cd backend
 2. npm install
-3. nodemon server.js
+3. npm run start
 ```
